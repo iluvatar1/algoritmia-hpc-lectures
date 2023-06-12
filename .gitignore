@@ -1,0 +1,5 @@
+*.sh
+*.ipynb_checkpoints*
+*.txt
+*.log
+*~

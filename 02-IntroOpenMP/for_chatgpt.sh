@@ -7,8 +7,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --partition=12threads
-#SBATCH -o job_%j.out
-#SBATCH -e job_%j.err
+#SBATCH -o job_output_%A_%a.txt
+#SBATCH -e job_error_%A_%a.txt
 
 # Define the array of thread values and corresponding cpus-per-task values
 threads=(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16)
@@ -22,4 +22,4 @@ export OMP_NUM_THREADS=${threads[$index]}
 cpus_per_task=${cpus[$index]}
 #SBATCH --cpus-per-task=$cpus_per_task
 
-./avg_openmp.x 100000000
+./avg_openmp.x 1000

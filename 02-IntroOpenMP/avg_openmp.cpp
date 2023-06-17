@@ -9,7 +9,9 @@ int main(int argc, char **argv) {
     const int N = std::stoi(argv[1]);
     std::vector<double> data(N, 0.0);
     init(data);
-    
+    double suma_total = 0.0;
+
+    double start = omp_get_wtime();
     // calcular las sumas parciales
 #pragma omp parallel 
     {
@@ -21,10 +23,15 @@ int main(int argc, char **argv) {
         for(int ii = Nlocal*thid; ii < (thid+1)*Nlocal; ++ii) {
             suma += data[ii];
         }
-        std::cout << thid << "\t" << suma << "\n";
+        //std::cout << thid << "\t" << suma << "\n";
+	#pragma omp atomic update
+	suma_total += suma;
     }
+    double end = omp_get_wtime();
+    std::cout << end-start << "\n";
     
     // imprimir la informacion
+    std::cout << "avg: " << suma_total/N << "\n";
     
     return 0;
 }

@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 	suma_total += suma;
     }
     double end = omp_get_wtime();
-    std::cout << end-start << "\n";
+    std::cout << "time: " << end-start << "\n";
     
     // imprimir la informacion
     std::cout << "avg: " << suma_total/N << "\n";

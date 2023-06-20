@@ -22,4 +22,5 @@ export OMP_NUM_THREADS=${threads[$index]}
 cpus_per_task=${cpus[$index]}
 #SBATCH --cpus-per-task=$cpus_per_task
 
-./avg_openmp.x 1000
+#./avg_parallelfor.x 10000000
+./avg_openmp.x 10000000

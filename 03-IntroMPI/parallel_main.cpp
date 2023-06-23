@@ -1,4 +1,4 @@
-#include "parallel_avg_pointpoint.h"
+#include "parallel_avg.h"
 #include "mpi.h"
 
 int main(int argc, char **argv) {

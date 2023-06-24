@@ -5,9 +5,10 @@
 *~
 *.cpp
 *.cu
-*.x
+*.x*
 *.DS_*
 *.h
 *.py
 *.err
-*.out
+*.out*
+*.jupyter*.db
